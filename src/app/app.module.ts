@@ -10,6 +10,10 @@ import { HomePage } from '../pages/home/home';
 import { Firebase } from '@ionic-native/firebase';
 import { AngularFireModule } from '@angular/fire';
 import { FIREBASE_CONFIG } from "./firebase.credentials";
+import { AuthenticationProvider } from '../providers/authentication/authentication';
+import { FirebaseProvider } from '../providers/firebase/firebase';
+import { LoginPage } from "../pages/login/login";
+import { SignupPage } from "../pages/signup/signup";
 
 
 
@@ -17,7 +21,10 @@ import { FIREBASE_CONFIG } from "./firebase.credentials";
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage,
+    SignupPage
+    
   ],
   imports: [
     BrowserModule,
@@ -27,13 +34,19 @@ import { FIREBASE_CONFIG } from "./firebase.credentials";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage,
+    SignupPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Firebase
+    Firebase,
+    AuthenticationProvider,
+    FirebaseProvider,
+    AuthenticationProvider,
+    FirebaseProvider
   ]
 })
 export class AppModule {}

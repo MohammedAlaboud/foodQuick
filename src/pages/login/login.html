@@ -1,0 +1,21 @@
+<ion-content no-bounce>
+
+  <div class="login-form">
+    <ion-item>
+      <ion-label>Email: </ion-label>
+      <ion-input [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>PIN: </ion-label>
+      <ion-input type="password" pattern="[0-9]*" inputmode="numeric" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <button ion-button clear color="danger" (click)="resetPIN()" item-end><strong>Forgot PIN?</strong></button>
+    </ion-item>
+  </div>
+  <div class="login-button">
+    <button ion-button round (click)="authenticate()" class="button-main"><strong>LOGIN</strong></button>
+  </div>
+  <p id="sign-up-tag">Don't have an account? <strong (click)="goToSignUp()"><u>Sign up</u></strong></p>
+
+</ion-content>
