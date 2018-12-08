@@ -1,5 +1,7 @@
 {
   "name": "foodQuick",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
