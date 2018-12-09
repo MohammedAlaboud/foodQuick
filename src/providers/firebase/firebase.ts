@@ -38,4 +38,8 @@ export class FirebaseProvider {
     return this.fireDb.list(nodeRef).snapshotChanges();
   }
 
+  public deleteOjbect(nodeRef) {
+    return this.fireDb.object(nodeRef).remove();
+  }
+
 }

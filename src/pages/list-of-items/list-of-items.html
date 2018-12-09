@@ -28,14 +28,16 @@
       <button ion-button round (click)="saveNewItem()" class="button-main"><strong>Add new Item</strong></button>
     </div>
     <div class="login-button">
-        <button ion-button round (click)="toggleShowCreateItem()" class="button-main"><strong>Cancel</strong></button>
-      </div>
+      <button ion-button round (click)="toggleShowCreateItem()" class="button-main"><strong>Cancel</strong></button>
+    </div>
   </div>
 
 
   <ion-card *ngFor="let item of allItems | async">
-    <ion-card-title>Item: {{item.name}}</ion-card-title>
-    <ion-card-content>Price: {{item.price}}</ion-card-content>
+
+    <ion-card-title>Item: {{item.payload.val().name}}</ion-card-title>
+    <ion-card-content>Price: {{item.payload.val().price}}</ion-card-content>
+    <button color="danger" ion-button icon-left clear small float-right (click)=deleteItem(item.key)>Delete</button>
   </ion-card>
 
 </ion-content>

@@ -41,7 +41,7 @@ export class ListOfItemsPage {
     this.customer = false;
     this.shop = this.navParams.get('shopData');
     this.shopKey = this.navParams.get('shopKey');
-    this.allItems =  this.firebaseProvider.getObservableList('shops/'+this.shopKey+'/items');
+    this.allItems =  this.firebaseProvider.getObservableList2('shops/'+this.shopKey+'/items');
   }
 
   private toggleShowCreateItem() {
@@ -59,5 +59,9 @@ export class ListOfItemsPage {
     this.name = "";
     this.price = "£";
     this.toggleShowCreateItem();
+  }
+
+  private deleteItem(itemKey) {
+    this.firebaseProvider.deleteOjbect('shops/'+this.shopKey+'/items/'+itemKey);
   }
 }
