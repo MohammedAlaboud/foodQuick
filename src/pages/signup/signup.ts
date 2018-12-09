@@ -58,11 +58,12 @@ export class SignupPage {
 
     const object = (this.userType == "shop")? this.shopForm.value : this.customerForm.value
 
-    this.firebaseProvider.pushObjectToGivenNode(object, nodeRef);
-
     console.log(object.email)
 
-    this.firebaseProvider.signUpWithEmailAndPassword(object.email, object.password).then(()=>{
+    this.firebaseProvider.signUpWithEmailAndPassword(object.email, object.password).then((id)=>{
+      this.firebaseProvider.pushObjectToGivenNodeWithGivenKey(object, nodeRef, id).then(()=>{
+        this.firebaseProvider.pushObjectToGivenNodeWithGivenKey({"userType":this.userType}, "userType", id)
+      });
       this.navCtrl.pop();
     })
   }

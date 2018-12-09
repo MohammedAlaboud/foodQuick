@@ -4,6 +4,7 @@ import { AuthenticationProvider } from "../../providers/authentication/authentic
 import { SignupPage } from "../signup/signup";
 import { FirebaseProvider } from "../../providers/firebase/firebase";
 import { ShopPage } from '../shop/shop';
+import { HomePage } from "../home/home";
 
 @IonicPage()
 @Component({
@@ -36,11 +37,13 @@ export class LoginPage {
   private goToSignUp() {
     this.navCtrl.push(SignupPage, {}, { animation: 'md-transition', duration: 1000 });
   }
+
   private authenticate(){
-    this.firebaseProvider.signInWithEmailAndPassword(this.email, this.password).then((data)=>{
-      console.log(data);
-      this.navCtrl.push(ShopPage);
+    this.firebaseProvider.signInWithEmailAndPassword(this.email, this.password).then((userType)=>{
+      const nextPage = (userType == "shop")? ShopPage:HomePage
+      this.navCtrl.push(nextPage);
     }).catch(err=>{
+       this.navCtrl.push(ShopPage);
       alert (err)
     })
    

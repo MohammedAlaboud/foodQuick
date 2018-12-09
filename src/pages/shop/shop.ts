@@ -18,15 +18,16 @@ export class ShopPage {
     public navParams: NavParams,
     private firebaseProvider: FirebaseProvider) {
 
-      this.setup();
+      // this.setup();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ShopPage');
+    this.setup()
   }
 
-  private setup() {
-    this.allShops = this.firebaseProvider.getObservableList2('shops');
+  private async setup() {
+    this.allShops = await this.firebaseProvider.getObservableList2('shops');
   }
 
   openShopItems(shop, key) {
