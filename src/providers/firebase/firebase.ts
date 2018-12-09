@@ -34,4 +34,8 @@ export class FirebaseProvider {
     return this.fireDb.list(nodeRef).valueChanges();
   }
 
+  public getObservableList2(nodeRef) {
+    return this.fireDb.list(nodeRef).snapshotChanges();
+  }
+
 }

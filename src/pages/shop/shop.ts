@@ -26,12 +26,13 @@ export class ShopPage {
   }
 
   private setup() {
-    this.allShops = this.firebaseProvider.getObservableList('shops');
+    this.allShops = this.firebaseProvider.getObservableList2('shops');
   }
 
-  openShopItems(shop, id) {
-    console.log(id);
-    this.navCtrl.push(ListOfItemsPage, {'shopData': shop})
+  openShopItems(shop, key) {
+    console.log(shop);
+    console.log(shop.payload.val())
+    this.navCtrl.push(ListOfItemsPage, {'shopData': shop, 'shopKey': key})
   }
 
 }

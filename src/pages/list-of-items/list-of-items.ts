@@ -29,7 +29,7 @@ export class ListOfItemsPage {
 
   private setup() {
     this.shop = this.navParams.get('shopData');
-    console.log(this.shop);
-    this.allItems =  this.firebaseProvider.getObservableList('shops/shopOne/items');
+    let shopKey = this.navParams.get('shopKey');
+    this.allItems =  this.firebaseProvider.getObservableList('shops/'+shopKey+'/items');
   }
 }

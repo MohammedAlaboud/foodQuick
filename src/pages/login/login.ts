@@ -37,12 +37,13 @@ export class LoginPage {
     this.navCtrl.push(SignupPage, {}, { animation: 'md-transition', duration: 1000 });
   }
   private authenticate(){
-    // this.firebaseProvider.signInWithEmailAndPassword(this.email, this.password).then(()=>{
-    //   alert ("Success")
-    // }).catch(err=>{
-    //   alert (err)
-    // })
-    this.navCtrl.push(ShopPage);
+    this.firebaseProvider.signInWithEmailAndPassword(this.email, this.password).then((data)=>{
+      console.log(data);
+      this.navCtrl.push(ShopPage);
+    }).catch(err=>{
+      alert (err)
+    })
+   
   }
 
 

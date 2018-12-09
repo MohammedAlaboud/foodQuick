@@ -10,15 +10,15 @@
 <ion-content no-bounce>
 
   <ion-card *ngFor="let shop of allShops | async" (click)="openShopItems(shop, shop.key)">
-    <ion-card-title>{{shop.name}}</ion-card-title>
+    <ion-card-title>{{shop.payload.val().name}}</ion-card-title>
     <ion-card-content>
       Address
       <br> 
-      {{shop.addressLine1}}, {{shop.addressLine2}}, {{shop.postcode}}
+      {{shop.payload.val().addressLine1}}, {{shop.payload.val().addressLine2}}, {{shop.payload.val().postcode}}
       <br><br>
       Contact
       <br> 
-      {{shop.contact}}
+      {{shop.payload.val().contact}}
     </ion-card-content>
   </ion-card>
 

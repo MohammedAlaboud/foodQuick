@@ -62,7 +62,9 @@ export class SignupPage {
 
     console.log(object.email)
 
-    this.firebaseProvider.signUpWithEmailAndPassword(object.email, object.password)
+    this.firebaseProvider.signUpWithEmailAndPassword(object.email, object.password).then(()=>{
+      this.navCtrl.pop();
+    })
   }
 
 
