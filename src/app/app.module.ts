@@ -8,13 +8,15 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
 import { Firebase } from '@ionic-native/firebase';
-import { AngularFireModule } from '@angular/fire';
+import { AngularFireModule} from '@angular/fire';
 import { FIREBASE_CONFIG } from "./firebase.credentials";
 import { AuthenticationProvider } from '../providers/authentication/authentication';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { LoginPage } from "../pages/login/login";
 import { SignupPage } from "../pages/signup/signup";
 
+
+import { AngularFireDatabase } from '@angular/fire/database';
 
 
 
@@ -46,7 +48,8 @@ import { SignupPage } from "../pages/signup/signup";
     AuthenticationProvider,
     FirebaseProvider,
     AuthenticationProvider,
-    FirebaseProvider
+    FirebaseProvider,
+    AngularFireDatabase
   ]
 })
 export class AppModule {}

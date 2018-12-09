@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from "@angular/fire/database";
 
 /*
   Generated class for the FirebaseProvider provider.
@@ -8,9 +9,17 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class FirebaseProvider {
+  public fireAuth: any; /*Author of the firebase*/
 
-  constructor() {
+
+  constructor(
+    private fireDb: AngularFireDatabase
+   ) {
     console.log('Hello FirebaseProvider Provider');
+  }
+
+  public pushObjectToGivenNode(object, nodeRef) {
+    this.fireDb.database.ref(nodeRef).push(object)
   }
 
 }

@@ -15,10 +15,73 @@
 
 
 <ion-content padding>
-  <ion-select interface="popover">
-    <ion-option value="parent">Parent</ion-option>
-    <ion-option value="facilitator">Facilitator</ion-option>
-    <ion-option value="admin">Admin</ion-option>
-  </ion-select>
+  <ion-list>
+    <ion-item>
+      <ion-label>User Type</ion-label>
+      <ion-select [(ngModel)]="userType" interface="popover">
+        <ion-option value="shop">Shop</ion-option>
+        <ion-option value="customer">Customer</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
 
-</ion-content>
+  <form *ngIf="userType == 'shop'" [formGroup]="shopForm">
+    <ion-item>
+      <ion-label>Name:</ion-label>
+      <ion-input autocorrect=“on” autocomplete="on" type="text" formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Email:</ion-label>
+      <ion-input autocorrect=“on” autocomplete="on" type="text" formControlName="email"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>Mobile:</ion-label>
+      <ion-input autocorrect=“on” autocomplete="on" type="number" formControlName="mobile"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Address Line 1:</ion-label>
+      <ion-input autocorrect=“on” autocomplete="on" type="text" formControlName="addressLineOne"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Address Line 2:</ion-label>
+      <ion-input autocorrect=“on” autocomplete="on" type="text" formControlName="addressLineTwo"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Post Code:</ion-label>
+      <ion-input autocorrect=“on” autocomplete="on" type="text" formControlName="postCode"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>City:</ion-label>
+      <ion-input autocorrect=“on” autocomplete="on" type="text" formControlName="city"></ion-input>
+    </ion-item>
+
+     <ion-item>
+      <ion-label>Password:</ion-label>
+      <ion-input autocorrect=“on” autocomplete="on" type="password" formControlName="password"></ion-input>
+    </ion-item>
+  </form>
+
+  <form *ngIf="userType == 'customer'" [formGroup]="shopForm">
+    <ion-item>
+      <ion-label>Email:</ion-label>
+      <ion-input autocorrect=“on” autocomplete="on" type="text" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Password:</ion-label>
+      <ion-input autocorrect=“on” autocomplete="on" type="password" formControlName="password"></ion-input>
+    </ion-item>
+  </form>
+
+   <div *ngIf="userType" class="button-container">
+    <button round ion-button (click)="signUpUser()"><strong>SIGN UP</strong></button>
+  </div>
+
+</ion-content>xxw
