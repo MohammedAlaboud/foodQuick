@@ -18,6 +18,16 @@ page-list-of-items {
         background-size: cover;
         background-position: center;
         position: relative;
+
+        .login-button {
+            text-align: center;
+        }
+        .button-main {
+            width: 90%;
+            border: 1px solid white;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+        }
     }
 
 

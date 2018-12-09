@@ -11,8 +11,17 @@ import { Observable } from 'rxjs';
 })
 export class ListOfItemsPage {
 
-  shop;
-  allItems: Observable<any[]>;
+  shop;        // shop object. passed through the navigation parameters of previous page.
+  shopKey;    // key of the shop.
+  allItems: Observable<any[]>;   // list of allItems which updates automatically.
+
+  // to control the view
+  showCreateNewItem;
+  customer;
+
+  // to temporary store the values of new item
+  name;
+  price
 
   constructor(
     public navCtrl: NavController,
@@ -28,8 +37,27 @@ export class ListOfItemsPage {
   }
 
   private setup() {
+    this.showCreateNewItem = false;
+    this.customer = false;
     this.shop = this.navParams.get('shopData');
-    let shopKey = this.navParams.get('shopKey');
-    this.allItems =  this.firebaseProvider.getObservableList('shops/'+shopKey+'/items');
+    this.shopKey = this.navParams.get('shopKey');
+    this.allItems =  this.firebaseProvider.getObservableList('shops/'+this.shopKey+'/items');
+  }
+
+  private toggleShowCreateItem() {
+    this.showCreateNewItem = !this.showCreateNewItem;
+    this.name = "";
+    this.price = "£";
+  }
+  
+  private saveNewItem() {
+    let tempItem = {
+      'name': this.name,
+      'price': this.price
+    }
+    this.firebaseProvider.pushObjectToGivenNode(tempItem, 'shops/'+this.shopKey+'/items/');
+    this.name = "";
+    this.price = "£";
+    this.toggleShowCreateItem();
   }
 }

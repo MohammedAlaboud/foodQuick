@@ -30,8 +30,6 @@ export class ShopPage {
   }
 
   openShopItems(shop, key) {
-    console.log(shop);
-    console.log(shop.payload.val())
     this.navCtrl.push(ListOfItemsPage, {'shopData': shop, 'shopKey': key})
   }
 

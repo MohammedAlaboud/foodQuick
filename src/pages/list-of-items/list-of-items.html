@@ -7,11 +7,35 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content no-bounce>
 
-    <ion-card *ngFor="let item of allItems | async">
-        <ion-card-title>Item: {{item.name}}</ion-card-title>
-        <ion-card-content>Price: {{item.price}}</ion-card-content>
-      </ion-card>
+  <div *ngIf="!customer && !showCreateNewItem" class="login-button">
+    <button ion-button round (click)="toggleShowCreateItem()" class="button-main"><strong>Toggle Create New Item</strong></button>
+  </div>
+
+  <div *ngIf="showCreateNewItem">
+    <ion-card color="grey">
+      <ion-item>
+        <ion-label>Name: </ion-label>
+        <ion-input [(ngModel)]="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Price: </ion-label>
+        <ion-input [(ngModel)]="price"></ion-input>
+      </ion-item>
+    </ion-card>
+    <div class="login-button">
+      <button ion-button round (click)="saveNewItem()" class="button-main"><strong>Add new Item</strong></button>
+    </div>
+    <div class="login-button">
+        <button ion-button round (click)="toggleShowCreateItem()" class="button-main"><strong>Cancel</strong></button>
+      </div>
+  </div>
+
+
+  <ion-card *ngFor="let item of allItems | async">
+    <ion-card-title>Item: {{item.name}}</ion-card-title>
+    <ion-card-content>Price: {{item.price}}</ion-card-content>
+  </ion-card>
 
 </ion-content>
