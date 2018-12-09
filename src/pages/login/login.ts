@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { AuthenticationProvider } from "../../providers/authentication/authentication";
 import { SignupPage } from "../signup/signup";
+import { FirebaseProvider } from "../../providers/firebase/firebase";
 
 /**
  * Generated class for the LoginPage page.
@@ -21,22 +22,15 @@ export class LoginPage {
   private isNewAccount;
   private email;
   private password;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private loadingCtrl: LoadingController, private alertCtrl: AlertController, private authenticationProvider: AuthenticationProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private loadingCtrl: LoadingController, private alertCtrl: AlertController, private authenticationProvider: AuthenticationProvider, private firebaseProvider: FirebaseProvider) {
   }
 
   ionViewDidLoad() {
-    this.email = this.navParams.get("email");
-    this.isNewAccount = (this.email) ? false : true;
-    console.log('ionViewDidLoad LoginPage');
   }
 
-  returnToAccountSelection() {
-    this.navCtrl.pop();
-  }
+ 
 
-  private registerAccount() {
-    console.log("Regestering")
-  }
+ 
 
   /**
   * @description To proceed to sign up page.
@@ -44,28 +38,20 @@ export class LoginPage {
   private goToSignUp() {
     this.navCtrl.push(SignupPage, {}, { animation: 'md-transition', duration: 1000 });
   }
-
-  /**
-     * @description 
-     */
-  private authenticate() {
-    
-  }
-
-  /**
-   * 
-   * @param userType 
-   */
-  private async goToHomePage(userType) {
-   
+  private authenticate(){
+    this.firebaseProvider.signInWithEmailAndPassword(this.email, this.password).then(()=>{
+      alert ("Success")
+    }).catch(err=>{
+      alert (err)
+    })
   }
 
 
-
+//WE DID ATTEMPT THIS BUT TO NO AVAIL... (USER WILL BE ABLE TO RESET PIN IN FUTURE)
   private async resetPIN() {
   //   if (this.email && this.email != "") {
   //     let alert = this.alertCtrl.create({ buttons: ['OK'] })
-  //     this.authenticationProvider.sendResetPasswordToUser(this.email).then(() => {
+  //     this.firebaseProvider.sendResetPasswordToUser(this.email).then(() => {
   //       alert.setTitle("Success");
   //       alert.setMessage("A PIN reset link has been sent to your email.");
   //     }).catch((err) => {

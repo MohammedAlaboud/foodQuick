@@ -68,7 +68,7 @@
     </ion-item>
   </form>
 
-  <form *ngIf="userType == 'customer'" [formGroup]="shopForm">
+  <form *ngIf="userType == 'customer'" [formGroup]="customerForm">
     <ion-item>
       <ion-label>Email:</ion-label>
       <ion-input autocorrect=“on” autocomplete="on" type="text" formControlName="email"></ion-input>
@@ -81,7 +81,7 @@
   </form>
 
    <div *ngIf="userType" class="button-container">
-    <button round ion-button (click)="signUpUser()"><strong>SIGN UP</strong></button>
+    <button round ion-button (click)="signUpUser()" ><strong>SIGN UP</strong></button>
   </div>
 
 </ion-content>xxw

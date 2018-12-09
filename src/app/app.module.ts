@@ -17,6 +17,7 @@ import { SignupPage } from "../pages/signup/signup";
 
 
 import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 
@@ -49,7 +50,8 @@ import { AngularFireDatabase } from '@angular/fire/database';
     FirebaseProvider,
     AuthenticationProvider,
     FirebaseProvider,
-    AngularFireDatabase
+    AngularFireDatabase,
+    AngularFireAuth
   ]
 })
 export class AppModule {}
