@@ -1,0 +1,20 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Select Shop</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-bounce>
+  <div class="login-form">
+    <ion-card *ngFor="let shop of allShops | async" (click)="openShopItems(shop)">
+      <ion-card-title>{{shop.name}}</ion-card-title>
+      <!-- <ion-card-content>
+          <p>{{shop.address}}</p>
+        </ion-card-content> -->
+    </ion-card>
+  </div>
+
+</ion-content>

@@ -2,12 +2,6 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from "@angular/fire/database";
 import { AngularFireAuth } from "@angular/fire/auth";
 
-/*
-  Generated class for the FirebaseProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class FirebaseProvider {
   public fireAuth: any; /*Author of the firebase*/
@@ -34,6 +28,10 @@ export class FirebaseProvider {
 
   public sendResetPasswordToUser(email){
     
+  }
+
+  public getObservableList(nodeRef) {
+    return this.fireDb.list(nodeRef).valueChanges();
   }
 
 }

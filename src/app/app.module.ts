@@ -18,6 +18,7 @@ import { SignupPage } from "../pages/signup/signup";
 
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { ShopPage } from '../pages/shop/shop';
 
 
 
@@ -26,7 +27,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
     MyApp,
     HomePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    ShopPage
     
   ],
   imports: [
@@ -39,7 +41,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
     MyApp,
     HomePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    ShopPage
   ],
   providers: [
     StatusBar,
