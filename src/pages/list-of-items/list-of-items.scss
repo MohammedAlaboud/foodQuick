@@ -1,0 +1,24 @@
+page-list-of-items {
+
+    ion-card {
+        position: relative;
+        ion-card-title {
+            position: relative;
+            text-align: left;
+            left: 4%;
+            top: 25%;
+            font-size: 18px;
+            width: 92%;
+            color: rgb(0, 0, 0) !important;
+        }
+    }
+
+    ion-content {
+        background-image: url('../assets/imgs/background.jpg');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    }
+
+
+}

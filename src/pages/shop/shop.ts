@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
+import { ListOfItemsPage } from '../list-of-items/list-of-items';
 
 
 @IonicPage()
@@ -17,7 +18,6 @@ export class ShopPage {
     public navParams: NavParams,
     private firebaseProvider: FirebaseProvider) {
 
-
       this.setup();
   }
 
@@ -29,8 +29,9 @@ export class ShopPage {
     this.allShops = this.firebaseProvider.getObservableList('shops');
   }
 
-  // openShopItems(shop) {
-  //   this.navCtrl
-  // }
+  openShopItems(shop, id) {
+    console.log(id);
+    this.navCtrl.push(ListOfItemsPage, {'shopData': shop})
+  }
 
 }

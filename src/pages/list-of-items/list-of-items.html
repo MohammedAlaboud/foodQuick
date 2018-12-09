@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>List of Items</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-card *ngFor="let item of allItems | async">
+        <ion-card-title>Item: {{item.name}}</ion-card-title>
+        <ion-card-content>Price: {{item.price}}</ion-card-content>
+      </ion-card>
+
+</ion-content>

@@ -8,13 +8,18 @@
 
 
 <ion-content no-bounce>
-  <div class="login-form">
-    <ion-card *ngFor="let shop of allShops | async" (click)="openShopItems(shop)">
-      <ion-card-title>{{shop.name}}</ion-card-title>
-      <!-- <ion-card-content>
-          <p>{{shop.address}}</p>
-        </ion-card-content> -->
-    </ion-card>
-  </div>
+
+  <ion-card *ngFor="let shop of allShops | async" (click)="openShopItems(shop, shop.key)">
+    <ion-card-title>{{shop.name}}</ion-card-title>
+    <ion-card-content>
+      Address
+      <br> 
+      {{shop.addressLine1}}, {{shop.addressLine2}}, {{shop.postcode}}
+      <br><br>
+      Contact
+      <br> 
+      {{shop.contact}}
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
