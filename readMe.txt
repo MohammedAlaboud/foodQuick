@@ -1,5 +1,5 @@
 
-- [Simple Video Demo](https://www.dropbox.com/s/3ugr3ijhxzjdi9m/Silent%20Demo%20FoodQuick.mov?dl=0)
+[Simple Video Demo](https://www.dropbox.com/s/3ugr3ijhxzjdi9m/Silent%20Demo%20FoodQuick.mov?dl=0)
 This is just a quick 3 minute silent demo of this application. This project is not fully complete but I'm proud of the progress.
 
 Warning:
