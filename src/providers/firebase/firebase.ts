@@ -27,7 +27,7 @@ export class FirebaseProvider {
   }
 
   public sendResetPasswordToUser(email){
-    
+    // test
   }
 
   public getObservableList(nodeRef) {
